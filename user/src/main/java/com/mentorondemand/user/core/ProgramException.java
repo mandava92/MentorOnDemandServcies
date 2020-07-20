@@ -1,4 +1,4 @@
-package com.mentorondemand.core;
+package com.mentorondemand.user.core;
 
 public class ProgramException extends RuntimeException{
 

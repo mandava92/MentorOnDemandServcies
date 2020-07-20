@@ -2,21 +2,31 @@ package com.mentorondemand.admin.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mentorondemand.admin.domain.Batches;
 import com.mentorondemand.admin.dto.BatchDTO;
+import com.mentorondemand.admin.mapping.BatchMapping;
+import com.mentorondemand.admin.repository.BatchRepository;
 
 @Service
 public class BatchServiceImpl implements BatchService{
+	
+	@Autowired
+	private BatchRepository repository;
+	
+	@Autowired
+	private BatchMapping mapper;
 
 	public BatchDTO getBatch(Integer batchId) {
-		// TODO Auto-generated method stub
-		return null;
+		Batches batch = repository.findById(batchId);
+		return mapper.batchToBatchDto(batch);
 	}
 
 	public List<BatchDTO> getBatches() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Batches> batches = repository.findAll();
+		return mapper.batchToBatchDtos(batches);
 	}
 
 }

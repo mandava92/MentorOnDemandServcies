@@ -24,7 +24,7 @@ public class BatchController {
 		return null;
 	}
 	
-	@GetMapping(value = "/getBatches")
+	@GetMapping()
 	public ResponseEntity<List<BatchDTO>> getBatches(){
 		batchService.getBatches();
 		return null;

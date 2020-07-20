@@ -1,0 +1,14 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: student-service
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12354945
+    username: sql12354945
+    password: N2RHiU6kr6
+  

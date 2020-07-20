@@ -1,5 +1,7 @@
 package com.mentorondemand.admin.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,34 +23,34 @@ public class CourseController {
 	@Autowired
 	private CourseService courseService;
 
-	@PostMapping(value = "/createCourse")
+	@PostMapping
 	public ResponseEntity<CourseDTO> createCourse(@RequestBody CourseDTO courseDTO) {
-		courseService.createCourse(courseDTO);
-		return null;
+		CourseDTO course = courseService.createCourse(courseDTO);
+		return ResponseEntity.ok(course);
 	}
 
-	@PutMapping(value = "/createCourse")
+	@PutMapping
 	public ResponseEntity<CourseDTO> updateCourse(@RequestBody CourseDTO courseDTO) {
-		courseService.updateCourse(courseDTO);
-		return null;
+		CourseDTO course = courseService.updateCourse(courseDTO);
+		return ResponseEntity.ok(course);
 	}
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<CourseDTO> getCourse(@PathVariable Integer courseId) {
-		courseService.getCourse(courseId);
-		return null;
+	public ResponseEntity<CourseDTO> getCourse(@PathVariable Integer id) {
+		CourseDTO course = courseService.getCourse(id);
+		return ResponseEntity.ok(course);
 	}
 
-	@GetMapping(value = "/getCourses")
-	public ResponseEntity<CourseDTO> getCourses() {
-		courseService.getCourses();
-		return null;
+	@GetMapping
+	public ResponseEntity<List<CourseDTO>> getCourses() {
+		List<CourseDTO> courses = courseService.getCourses();
+		return ResponseEntity.ok(courses);
 	}
 
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<CourseDTO> deleteCourse(@PathVariable Integer courseId) {
-		courseService.deleteCourse(courseId);
-		return null;
+	public void deleteCourse(@PathVariable Integer id) {
+		courseService.deleteCourse(id);
+		
 	}
 
 }

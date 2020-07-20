@@ -1,4 +1,4 @@
-package com.mentorondemand.core;
+package com.mentorondemand.user.core;
 
 import java.util.HashMap;
 import java.util.Locale;

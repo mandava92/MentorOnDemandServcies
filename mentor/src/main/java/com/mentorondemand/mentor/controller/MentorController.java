@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mentorondemand.mentor.dto.MentorTrainingDTO;
@@ -17,41 +18,41 @@ import com.mentorondemand.mentor.dto.StudentTrainingDTO;
 import com.mentorondemand.mentor.service.MentorService;
 
 @RestController
-@RequestMapping(value = "/api/mentorTraining")
+@RequestMapping(value = "/api/mentor")
 public class MentorController {
 	
 	@Autowired
 	private MentorService mentorService;
 	
 	
-	@PostMapping(value = "/")
+	@PostMapping
 	public ResponseEntity<MentorTrainingDTO> create(@RequestBody MentorTrainingDTO trainingDTO) {
-		mentorService.createMentorTraining(trainingDTO);
-		return null;
+		MentorTrainingDTO training = mentorService.createMentorTraining(trainingDTO);
+		return ResponseEntity.ok(training);
 	}
 
-	@PutMapping(value = "/")
+	@PutMapping
 	public ResponseEntity<MentorTrainingDTO> update(@RequestBody MentorTrainingDTO trainingDTO) {
-		mentorService.updateMentorTraining(trainingDTO);
-		return null;
+		MentorTrainingDTO training = mentorService.updateMentorTraining(trainingDTO);
+		return ResponseEntity.ok(training);
 	}
 	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<MentorTrainingDTO> getTraining(@PathVariable Integer id){
-		mentorService.getMentorTraining(id);
-		return null;
+		MentorTrainingDTO training = mentorService.getMentorTraining(id);
+		return ResponseEntity.ok(training);
 	}
 	
-	@GetMapping(value = "/")
-	public ResponseEntity<MentorTrainingDTO> getTrainings(){
-		mentorService.getMentorTrainings();
-		return null;
+	@GetMapping
+	public ResponseEntity<List<MentorTrainingDTO>> getTrainings(@RequestParam(value = "status") String status){
+		List<MentorTrainingDTO> training = mentorService.getMentorTrainings(status);
+		return ResponseEntity.ok(training);
 	}
 	
-	@PutMapping(value = "/approveStudentTraining")
-	public ResponseEntity<List<StudentTrainingDTO>> getApprovalTraining(@RequestBody StudentTrainingDTO trainingDTO) {
-		mentorService.getApprovalTraining();
-		return null;
+	@GetMapping(value = "/approveStudentTraining")
+	public ResponseEntity<List<StudentTrainingDTO>> getApprovalTraining() {
+		List<StudentTrainingDTO> training = mentorService.getApprovalTraining();
+		return ResponseEntity.ok(training);
 	}
-
+	
 }

@@ -9,7 +9,7 @@ public class UserValidator implements ConstraintValidator<UserValidation,UserDTO
 
 	public boolean isValid(UserDTO value, ConstraintValidatorContext context) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

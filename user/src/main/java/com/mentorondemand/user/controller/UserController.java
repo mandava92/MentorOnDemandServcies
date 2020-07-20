@@ -24,26 +24,25 @@ public class UserController {
 	
 	@PostMapping
 	public ResponseEntity<UserDTO> createUser(@Validated @RequestBody UserDTO user){
-		userService.createUser(user);
-		return null;
+		user = userService.createUser(user);
+		return ResponseEntity.ok(user);
 	}
 	
 	@PutMapping
 	public ResponseEntity<UserDTO> updateUser(@Validated @RequestBody UserDTO user){
-		userService.updateUser(user);
-		return null;
+		user = userService.updateUser(user);
+		return ResponseEntity.ok(user);
 	}
 	
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<UserDTO> updateUser(@PathVariable Integer userId){
-		userService.deleteUser(userId);
-		return null;
+	public void deleteUser(@PathVariable Integer id){
+		userService.deleteUser(id);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<UserDTO> getUser(@PathVariable Integer userId){
-		userService.getUser(userId);
-		return null;
+	public ResponseEntity<UserDTO> getUser(@PathVariable Integer id){
+		UserDTO user = userService.getUser(id);
+		return ResponseEntity.ok(user);
 	}
 
 }
