@@ -9,7 +9,7 @@ import com.mentorondemand.user.domain.Role;
 
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long>{
-
-	List<String> findByIdIn(List<Integer> roleIds);
+	
+	List<Role> findByIdIn(List<Integer> roleIds);
 
 }

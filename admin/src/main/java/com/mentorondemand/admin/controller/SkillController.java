@@ -11,7 +11,7 @@ import com.mentorondemand.admin.dto.SkillDTO;
 import com.mentorondemand.admin.service.SkillService;
 
 @RestController
-@RequestMapping(value = "/api/skill")
+@RequestMapping(value = "/api/admin/skill")
 public class SkillController {
 	
 	@Autowired

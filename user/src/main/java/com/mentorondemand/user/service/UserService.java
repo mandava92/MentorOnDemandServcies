@@ -6,7 +6,7 @@ public interface UserService {
 
 	public UserDTO createUser(UserDTO userDTO);
 	public UserDTO updateUser(UserDTO userDTO);
-	public void deleteUser(Integer id);
-	public UserDTO getUser(Integer id);
+	public void deleteUser(String id);
+	public UserDTO getUser(String id);
 	
 }

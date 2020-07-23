@@ -3,6 +3,5 @@ server:
 spring:
   application:
     name: gateway-service
-jwt:
-  secret: mentorondemand
+
   

@@ -12,7 +12,7 @@ import com.mentorondemand.admin.dto.BatchDTO;
 import com.mentorondemand.admin.service.BatchService;
 
 @RestController
-@RequestMapping(value = "/api/batch")
+@RequestMapping(value = "/api/admin/batch")
 public class BatchController {
 	
 	@Autowired

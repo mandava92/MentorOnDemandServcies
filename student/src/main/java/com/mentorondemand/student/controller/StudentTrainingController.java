@@ -18,7 +18,7 @@ import com.mentorondemand.student.mapper.StudentTrainingMapper;
 import com.mentorondemand.student.service.StudentTrainingService;
 
 @RestController
-@RequestMapping(value = "/api/v1/studenttraining")
+@RequestMapping(value = "/api/studenttraining")
 public class StudentTrainingController {
 
 	@Autowired

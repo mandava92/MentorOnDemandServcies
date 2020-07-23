@@ -33,13 +33,13 @@ public class UserServiceImpl implements UserService{
 		return userMapper.usetToUserDto(user);
 	}
 
-	public void deleteUser(Integer id) {
-		User user = userRepository.findById(id);
+	public void deleteUser(String userName) {
+		User user = userRepository.findByUserName(userName);
 		userRepository.delete(user);
 	}
 
-	public UserDTO getUser(Integer id) {
-		User user = userRepository.findById(id);
+	public UserDTO getUser(String userName) {
+		User user = userRepository.findByUserName(userName);
 		System.out.println(user);
 		return userMapper.usetToUserDto(user);
 	}

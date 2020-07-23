@@ -82,4 +82,11 @@ public class AuthController {
 
 		return ResponseEntity.ok("User registered successfully!");
 	}
+	
+	@PostMapping("/validatetoken")
+	public ResponseEntity<Boolean> validateToken(@RequestBody String token){
+		Boolean isValid = jwtUtils.validateJwtToken(token);
+		return ResponseEntity.ok(isValid);
+	}
 }
+

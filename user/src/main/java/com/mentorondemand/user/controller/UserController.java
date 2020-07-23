@@ -29,14 +29,14 @@ public class UserController {
 		return ResponseEntity.ok(user);
 	}
 	
-	@DeleteMapping(value = "/{id}")
-	public void deleteUser(@PathVariable Integer id){
-		userService.deleteUser(id);
+	@DeleteMapping(value = "/{userName}")
+	public void deleteUser(@PathVariable String userName){
+		userService.deleteUser(userName);
 	}
 	
 	@GetMapping(value = "/{userName}")
-	public ResponseEntity<UserDTO> getUser(@PathVariable Integer id){
-		UserDTO user = userService.getUser(id);
+	public ResponseEntity<UserDTO> getUser(@PathVariable String userName){
+		UserDTO user = userService.getUser(userName);
 		return ResponseEntity.ok(user);
 	}
 

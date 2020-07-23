@@ -17,7 +17,7 @@ import com.mentorondemand.admin.dto.CourseDTO;
 import com.mentorondemand.admin.service.CourseService;
 
 @RestController
-@RequestMapping(value = "/api/course")
+@RequestMapping(value = "/api/admin/course")
 public class CourseController {
 
 	@Autowired

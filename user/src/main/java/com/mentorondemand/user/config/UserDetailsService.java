@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.mentorondemand.user.core.ProgramException;
+import com.mentorondemand.user.domain.Role;
 import com.mentorondemand.user.domain.User;
 import com.mentorondemand.user.repository.RoleRepository;
 import com.mentorondemand.user.repository.UserRepository;
@@ -31,10 +32,10 @@ public class UserDetailsService implements org.springframework.security.core.use
 		User user = userRepository.findByUserName(username);
 		if(user != null) {
 			List<Integer> roleIds = user.getUserRoles().stream().map(e->e.getRoleId()).collect(Collectors.toList());
-			List<String> roles = roleRepository.findByIdIn(roleIds);
+			List<Role> roles = roleRepository.findByIdIn(roleIds);
 			
 			return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(),roles.stream()
-					.map(role -> new SimpleGrantedAuthority(role))
+					.map(role -> new SimpleGrantedAuthority(role.getRoleName()))
 					.collect(Collectors.toList()));
 		}
 		throw new ProgramException("User Not Found with username: " + username);
