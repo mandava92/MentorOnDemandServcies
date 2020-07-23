@@ -17,7 +17,6 @@ public class UserRoles {
 	public Integer id;
 	@Version
 	public Integer version;
-	
 	@Column(name = "user_id")
 	public Integer userId;
 	@Column(name = "role_id")

@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.mentorondemand.user.domain.Role;
 import com.mentorondemand.user.dto.RoleDTO;
 import com.mentorondemand.user.mapper.RoleMapper;
 import com.mentorondemand.user.repository.RoleRepository;
-
+@Service
 public class RoleServiceImpl implements RoleService {
 	
 	@Autowired
