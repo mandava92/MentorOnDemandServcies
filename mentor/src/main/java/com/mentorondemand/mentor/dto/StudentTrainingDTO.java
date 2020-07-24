@@ -9,6 +9,9 @@ public class StudentTrainingDTO {
 	private Integer mentorTrainingId;
 	private BigDecimal ratings;
 	private String approvalStatus;
+	private String courseName;
+	private String batchName;
+	private BigDecimal mentorAmount;
 	public Integer getId() {
 		return id;
 	}
@@ -44,7 +47,24 @@ public class StudentTrainingDTO {
 		return "StudentTrainingDTO [id=" + id + ", userId=" + userId + ", mentorTrainingId=" + mentorTrainingId
 				+ ", ratings=" + ratings + ", approvalStatus=" + approvalStatus + "]";
 	}
-	
+	public String getCourseName() {
+		return courseName;
+	}
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
+	public String getBatchName() {
+		return batchName;
+	}
+	public void setBatchName(String batchName) {
+		this.batchName = batchName;
+	}
+	public BigDecimal getMentorAmount() {
+		return mentorAmount;
+	}
+	public void setMentorAmount(BigDecimal mentorAmount) {
+		this.mentorAmount = mentorAmount;
+	}
 	
 
 }

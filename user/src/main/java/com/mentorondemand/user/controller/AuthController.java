@@ -22,6 +22,7 @@ import com.mentorondemand.user.config.JwtUtils;
 import com.mentorondemand.user.core.ProgramException;
 import com.mentorondemand.user.domain.User;
 import com.mentorondemand.user.dto.UserDTO;
+import com.mentorondemand.user.dto.UserJWTDTO;
 import com.mentorondemand.user.mapper.UserMapper;
 import com.mentorondemand.user.repository.RoleRepository;
 import com.mentorondemand.user.repository.UserRepository;
@@ -61,9 +62,14 @@ public class AuthController {
 		List<String> roles = userDetails.getAuthorities().stream()
 				.map(item -> item.getAuthority())
 				.collect(Collectors.toList());
+//		UserJWTDTO userres= new UserJWTDTO();
+//		userres.setUserName(userDetails.getUsername());
+//		userres.setUserRoles(roles);
+//		return ResponseEntity.ok(userres);
 		return ResponseEntity.ok(new JwtResponse(jwt, 
 												 userDetails.getUsername(), 
 												 roles));
+
 	}
 
 	@PostMapping("/signup")

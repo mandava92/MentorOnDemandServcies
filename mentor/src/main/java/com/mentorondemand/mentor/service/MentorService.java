@@ -11,5 +11,5 @@ public interface MentorService {
 	public MentorTrainingDTO updateMentorTraining(MentorTrainingDTO training);
 	public MentorTrainingDTO getMentorTraining(Integer id);
 	public List<MentorTrainingDTO> getMentorTrainings(String status);
-	public List<StudentTrainingDTO> getApprovalTraining();
+	public List<StudentTrainingDTO> getApprovalTraining(Integer userId);
 }

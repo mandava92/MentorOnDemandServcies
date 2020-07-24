@@ -1,4 +1,4 @@
-package com.mentorondemand.admin.dto;
+package com.mentorondemand.mentor.dto;
 
 public class BatchDTO {
 	private Integer id;
@@ -15,6 +15,4 @@ public class BatchDTO {
 	public void setBatchName(String batchName) {
 		this.batchName = batchName;
 	}
-	
-	
 }

@@ -10,7 +10,7 @@ import com.mentorondemand.mentor.dto.StudentTrainingDTO;
 
 @FeignClient("student-service")
 public interface StudentFeign {
-	@GetMapping(path = "/api/v1/studenttraining")
+	@GetMapping(path = "/api/studenttraining")
 	public List<StudentTrainingDTO> getPendingApprovals(@RequestParam("courseApprovalStatus") String status,
 			@RequestParam("mentorTrainingId") Integer id);
 

@@ -44,16 +44,13 @@ public class MentorServiceImpl implements MentorService{
 	}
 
 	public List<MentorTrainingDTO> getMentorTrainings(String status) {
-		// TODO Auto-generated method stub
+		List<MentorTraining> trainings = repository.findByCourseStatus(status);
 		return null;
 	}
 
-	public List<StudentTrainingDTO> getApprovalTraining() {
-		List<StudentTrainingDTO> trainings = studentFeign.getPendingApprovals("Proposed",8);
-		// TODO Auto-generated method stub
+	public List<StudentTrainingDTO> getApprovalTraining(Integer userId) {
+		List<StudentTrainingDTO> trainings = studentFeign.getPendingApprovals("Proposed",userId);
 		return trainings;
 	}
 	
-	
-
 }

@@ -50,8 +50,8 @@ public class MentorController {
 	}
 	
 	@GetMapping(value = "/approveStudentTraining")
-	public ResponseEntity<List<StudentTrainingDTO>> getApprovalTraining() {
-		List<StudentTrainingDTO> training = mentorService.getApprovalTraining();
+	public ResponseEntity<List<StudentTrainingDTO>> getApprovalTraining(@RequestParam(value = "userId") Integer userId) {
+		List<StudentTrainingDTO> training = mentorService.getApprovalTraining(userId);
 		return ResponseEntity.ok(training);
 	}
 	
