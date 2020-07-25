@@ -4,22 +4,25 @@ import java.math.BigDecimal;
 
 public class StudentTrainingDTO {
 	
-	private Integer id;
-	private Integer userId;
+	private String userName;
 	private Integer mentorTrainingId;
 	private BigDecimal ratings;
-	private String courseApprovalStatus;
-	public Integer getId() {
-		return id;
+	private String approvalStatus;
+	
+	
+	
+	public String getApprovalStatus() {
+		return approvalStatus;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public void setApprovalStatus(String approvalStatus) {
+		this.approvalStatus = approvalStatus;
 	}
-	public Integer getUserId() {
-		return userId;
+	
+	public String getUserName() {
+		return userName;
 	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public Integer getMentorTrainingId() {
 		return mentorTrainingId;
@@ -33,17 +36,15 @@ public class StudentTrainingDTO {
 	public void setRatings(BigDecimal ratings) {
 		this.ratings = ratings;
 	}
-	public String getCourseApprovalStatus() {
-		return courseApprovalStatus;
-	}
-	public void setCourseApprovalStatus(String courseApprovalStatus) {
-		this.courseApprovalStatus = courseApprovalStatus;
-	}
 	@Override
 	public String toString() {
-		return "StudentTrainingDTO [id=" + id + ", userId=" + userId + ", mentorTrainingId=" + mentorTrainingId
-				+ ", ratings=" + ratings + ", courseApprovalStatus=" + courseApprovalStatus + "]";
+		return "StudentTrainingDTO [userName=" + userName + ", mentorTrainingId=" + mentorTrainingId + ", ratings="
+				+ ratings + ", approvalStatus=" + approvalStatus + "]";
 	}
+	
+	
+	
+	
 	
 	
 

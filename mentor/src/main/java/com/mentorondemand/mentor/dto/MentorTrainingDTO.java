@@ -5,24 +5,25 @@ import java.math.BigDecimal;
 public class MentorTrainingDTO {
 	
 	private Integer id;
-	private Integer userId;
+	private String userName;
 	private Integer courseId;
 	private BigDecimal ratings;
 	private String courseStatus;
 	private String courseName;
 	private String batchName;
-	private BigDecimal mentorAmount;
+	private BigDecimal amount;
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getUserId() {
-		return userId;
+	
+	public String getUserName() {
+		return userName;
 	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public Integer getCourseId() {
 		return courseId;
@@ -55,16 +56,17 @@ public class MentorTrainingDTO {
 	public void setBatchName(String batchName) {
 		this.batchName = batchName;
 	}
-	public BigDecimal getMentorAmount() {
-		return mentorAmount;
+	public BigDecimal getAmount() {
+		return amount;
 	}
-	public void setMentorAmount(BigDecimal mentorAmount) {
-		this.mentorAmount = mentorAmount;
+	public void setAmount(BigDecimal mentorAmount) {
+		this.amount = mentorAmount;
 	}
 	@Override
 	public String toString() {
-		return "MentorTrainingDTO [id=" + id + ", userId=" + userId + ", courseId=" + courseId + ", ratings=" + ratings
-				+ ", courseStatus=" + courseStatus + "]";
+		return "MentorTrainingDTO [id=" + id + ", userName=" + userName + ", courseId=" + courseId + ", ratings="
+				+ ratings + ", courseStatus=" + courseStatus + ", courseName=" + courseName + ", batchName=" + batchName
+				+ ", amount=" + amount + "]";
 	}
 	
 	

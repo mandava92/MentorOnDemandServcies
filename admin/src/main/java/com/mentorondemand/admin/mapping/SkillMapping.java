@@ -13,5 +13,6 @@ public interface SkillMapping {
 	
 	SkillDTO skillToSkillDto(Skills skill);
 	List<SkillDTO> skillToSkillDto(List<Skills> skill);
+	Skills skillDtoToSkill(SkillDTO skillDto);
 
 }

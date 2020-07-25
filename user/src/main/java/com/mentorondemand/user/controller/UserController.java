@@ -16,7 +16,6 @@ import com.mentorondemand.user.dto.UserDTO;
 import com.mentorondemand.user.service.UserService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value="/api/user")
 public class UserController {
 	

@@ -27,7 +27,7 @@ import com.mentorondemand.user.mapper.UserMapper;
 import com.mentorondemand.user.repository.RoleRepository;
 import com.mentorondemand.user.repository.UserRepository;
 
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {

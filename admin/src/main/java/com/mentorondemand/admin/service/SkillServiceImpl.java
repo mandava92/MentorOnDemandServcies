@@ -28,7 +28,20 @@ public class SkillServiceImpl implements SkillService{
 		List<Skills> skills = repository.findAll();
 		return mapper.skillToSkillDto(skills);
 	}
-	
+
+	@Override
+	public SkillDTO createSkill(SkillDTO skillDto) {
+		Skills skill = mapper.skillDtoToSkill(skillDto);
+		skill = repository.save(skill);
+		return mapper.skillToSkillDto(skill);
+	}
+
+	@Override
+	public SkillDTO updateSkill(SkillDTO skillDto) {
+		Skills skill = mapper.skillDtoToSkill(skillDto);
+		skill = repository.save(skill);
+		return mapper.skillToSkillDto(skill);
+	}
 	
 
 }

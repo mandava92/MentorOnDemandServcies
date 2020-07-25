@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,14 +23,26 @@ public class BatchController {
 	
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<BatchDTO> getBatch(Integer batchId){
-		batchService.getBatch(batchId);
-		return null;
+		BatchDTO batch = batchService.getBatch(batchId);
+		return ResponseEntity.ok(batch);
 	}
 	
-	@GetMapping()
+	@GetMapping
 	public ResponseEntity<List<BatchDTO>> getBatches(){
-		batchService.getBatches();
-		return null;
+		List<BatchDTO> batches = batchService.getBatches();
+		return ResponseEntity.ok(batches);
+	}
+	
+	@PostMapping()
+	public ResponseEntity<BatchDTO> createBatch(@RequestBody BatchDTO batchDTO){
+		BatchDTO batch = batchService.createBatch(batchDTO);
+		return ResponseEntity.ok(batch);
+	}
+	
+	@PutMapping()
+	public ResponseEntity<BatchDTO> upateBatch(@RequestBody BatchDTO batchDTO){
+		BatchDTO batch = batchService.createBatch(batchDTO);
+		return ResponseEntity.ok(batch);
 	}
 
 }

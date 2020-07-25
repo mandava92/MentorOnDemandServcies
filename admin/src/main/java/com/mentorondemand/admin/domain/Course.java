@@ -4,15 +4,19 @@ import java.math.BigDecimal;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "course")
 public class Course {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer id;
+	@Version
+	private Long version;
 	private String courseName;
 	private Integer skillId;
 	private Integer batchId;
@@ -54,10 +58,16 @@ public class Course {
 	public void setMentorShare(BigDecimal mentorShare) {
 		this.mentorShare = mentorShare;
 	}
+	public Long getVersion() {
+		return version;
+	}
+	public void setVersion(Long version) {
+		this.version = version;
+	}
 	@Override
 	public String toString() {
-		return "Course [id=" + id + ", courseName=" + courseName + ", skillId=" + skillId + ", batchId=" + batchId
-				+ ", studentFee=" + studentFee + ", mentorShare=" + mentorShare + "]";
+		return "Course [id=" + id + ", version=" + version + ", courseName=" + courseName + ", skillId=" + skillId
+				+ ", batchId=" + batchId + ", studentFee=" + studentFee + ", mentorShare=" + mentorShare + "]";
 	}
 	
 	

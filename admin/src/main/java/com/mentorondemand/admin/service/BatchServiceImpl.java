@@ -29,4 +29,18 @@ public class BatchServiceImpl implements BatchService{
 		return mapper.batchToBatchDtos(batches);
 	}
 
+	@Override
+	public BatchDTO createBatch(BatchDTO batchDTO) {
+		Batches batch = mapper.batchToBatchDto(batchDTO);
+		batch = repository.save(batch);
+		return mapper.batchToBatchDto(batch);
+	}
+
+	@Override
+	public BatchDTO updateBatch(BatchDTO batchDTO) {
+		Batches batch = mapper.batchToBatchDto(batchDTO);
+		batch = repository.save(batch);
+		return mapper.batchToBatchDto(batch);
+	}
+
 }

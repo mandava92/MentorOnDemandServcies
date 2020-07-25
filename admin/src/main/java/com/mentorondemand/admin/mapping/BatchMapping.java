@@ -11,4 +11,5 @@ import com.mentorondemand.admin.dto.BatchDTO;
 public interface BatchMapping {
 	BatchDTO batchToBatchDto(Batches skill);
 	List<BatchDTO> batchToBatchDtos(List<Batches> skill);
+	Batches batchToBatchDto(BatchDTO batchDTO);
 }

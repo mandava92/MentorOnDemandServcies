@@ -22,8 +22,8 @@ public class StudentTraining {
 	
 	@Column(name= "mentor_training_id")
 	private Integer mentorTrainingId;
-	@Column(name = "user_id")
-	private Integer userId;
+	@Column(name = "userName")
+	private String userName;
 	
 	@Column(name = "rating")
 	private BigDecimal rating;
@@ -55,12 +55,12 @@ public class StudentTraining {
 		this.mentorTrainingId = mentorTrainingId;
 	}
 
-	public Integer getUserId() {
-		return userId;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public BigDecimal getRating() {
@@ -82,7 +82,8 @@ public class StudentTraining {
 	@Override
 	public String toString() {
 		return "StudentTraining [id=" + id + ", version=" + version + ", mentorTrainingId=" + mentorTrainingId
-				+ ", userId=" + userId + ", rating=" + rating + ", courseApprovalStatus=" + courseApprovalStatus + "]";
+				+ ", userName=" + userName + ", rating=" + rating + ", courseApprovalStatus=" + courseApprovalStatus
+				+ "]";
 	}
 	
 	

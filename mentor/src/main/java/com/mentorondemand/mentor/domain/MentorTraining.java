@@ -21,8 +21,8 @@ public class MentorTraining {
 	@Version
 	private Integer version;
 	
-	@Column(name = "user_id")
-	private Integer userId;
+	@Column(name = "user_name")
+	private String userName;
 	
 	@Column(name = "course_id")
 	private Integer courseId;
@@ -32,6 +32,9 @@ public class MentorTraining {
 	
 	@Column(name= "ratings")
 	private BigDecimal ratings;
+	
+	@Column(name = "amount")
+	private BigDecimal amount;
 
 	public Integer getId() {
 		return id;
@@ -49,12 +52,12 @@ public class MentorTraining {
 		this.version = version;
 	}
 
-	public Integer getUserId() {
-		return userId;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public Integer getCourseId() {
@@ -80,10 +83,19 @@ public class MentorTraining {
 	public void setRatings(BigDecimal ratings) {
 		this.ratings = ratings;
 	}
+	
+
+	public BigDecimal getAmount() {
+		return amount;
+	}
+
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
 
 	@Override
 	public String toString() {
-		return "MentorTraining [id=" + id + ", version=" + version + ", userId=" + userId + ", courseId=" + courseId
+		return "MentorTraining [id=" + id + ", version=" + version + ", userName=" + userName + ", courseId=" + courseId
 				+ ", courseStatus=" + courseStatus + ", ratings=" + ratings + "]";
 	}
 	
