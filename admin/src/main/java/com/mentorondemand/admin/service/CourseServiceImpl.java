@@ -17,7 +17,7 @@ import com.mentorondemand.admin.repository.CourseRepository;
 @Service
 public class CourseServiceImpl implements CourseService{
 	
-	private static final String SEARCH_SERVICE = "http://localhost:9090/courses";
+	private static final String SEARCH_SERVICE = "http://localhost:9090/api/search/courses";
 
 	@Autowired
 	private CourseRepository courseRepository;
@@ -56,6 +56,7 @@ public class CourseServiceImpl implements CourseService{
 			courseIndexDTO.setSkillId(course.getSkillId());
 			restTemplate.postForObject(SEARCH_SERVICE, courseIndexDTO, ResponseEntity.class);
 		} catch (Exception e) {
+			e.printStackTrace();
 
 		}
 
@@ -64,6 +65,7 @@ public class CourseServiceImpl implements CourseService{
 	public CourseDTO updateCourse(CourseDTO courseDTO) {
 		Course course = courseMapper.courseDtoToCourse(courseDTO);
 		course = courseRepository.save(course);
+		indexCourse(course);
 		return courseMapper.courseToCourseDto(course);
 	}
 
