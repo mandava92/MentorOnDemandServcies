@@ -1,0 +1,53 @@
+version: '3.7'
+
+services:
+
+  # routing-service:
+  #   container_name: routing-service
+  #   build: 
+  #     context: ./routing-service
+  #     dockerfile: DockerFile-routing-service
+  #   ports: 
+  #     - 8094:8094
+  #   depends_on: 
+  #     - discoveryserver
+  # training-service:
+  #   container_name: training-service
+  #   build: 
+  #     context: ./training-service
+  #     dockerfile: DockerFile-training-service
+  #   ports: 
+  #     - 8081:8081
+  #   # depends_on: 
+  #   #   - discoveryserver
+  # user-service:
+  #   container_name: user-service
+  #   build: 
+  #     context: ./user
+  #     dockerfile: DockerFile-user-service
+  #   ports: 
+  #     - 8090:8090
+  #   # depends_on: 
+  #   # - discoveryserver
+  # search-service:
+  #   container_name: search-service
+  #   build: 
+  #     context: ./search-service
+  #     dockerfile: DockerFile-search-service
+  #   ports: 
+  #     - 9090:9090
+  #   # depends_on: 
+  #   #   - discoveryserver
+  enrollment-service:
+    container_name: enrollment-service
+    build: 
+      context: ./enrollment-service
+      dockerfile: DockerFile-enrollment-service
+    ports: 
+      - 8091:8091
+    # depends_on: 
+    #   - discoveryserver
+
+volumes:
+  elasticsearch-data:
+    driver: local

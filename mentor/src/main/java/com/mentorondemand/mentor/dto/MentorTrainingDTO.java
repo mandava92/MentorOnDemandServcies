@@ -6,12 +6,11 @@ public class MentorTrainingDTO {
 	
 	private Integer id;
 	private String userName;
+	private String mentorName;
 	private Integer courseId;
 	private BigDecimal ratings;
 	private String courseStatus;
-	private String courseName;
-	private String batchName;
-	private BigDecimal amount;
+	private BigDecimal mentorFee;
 	public Integer getId() {
 		return id;
 	}
@@ -44,30 +43,20 @@ public class MentorTrainingDTO {
 		this.courseStatus = courseStatus;
 	}
 	
-	public String getCourseName() {
-		return courseName;
+	
+	public String getMentorName() {
+		return mentorName;
 	}
-	public void setCourseName(String courseName) {
-		this.courseName = courseName;
+	public void setMentorName(String mentorName) {
+		this.mentorName = mentorName;
 	}
-	public String getBatchName() {
-		return batchName;
+	public BigDecimal getMentorFee() {
+		return mentorFee;
 	}
-	public void setBatchName(String batchName) {
-		this.batchName = batchName;
-	}
-	public BigDecimal getAmount() {
-		return amount;
-	}
-	public void setAmount(BigDecimal mentorAmount) {
-		this.amount = mentorAmount;
-	}
-	@Override
-	public String toString() {
-		return "MentorTrainingDTO [id=" + id + ", userName=" + userName + ", courseId=" + courseId + ", ratings="
-				+ ratings + ", courseStatus=" + courseStatus + ", courseName=" + courseName + ", batchName=" + batchName
-				+ ", amount=" + amount + "]";
+	public void setMentorFee(BigDecimal mentorFee) {
+		this.mentorFee = mentorFee;
 	}
 	
+
 	
 }

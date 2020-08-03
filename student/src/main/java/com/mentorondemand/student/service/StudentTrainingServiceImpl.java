@@ -7,9 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import com.mentorondemand.common.dto.CourseIndexDTO;
+import com.mentorondemand.common.dto.StudentDTO;
 import com.mentorondemand.student.domain.StudentTraining;
-import com.mentorondemand.student.dto.CourseIndexDTO;
+import com.mentorondemand.student.dto.MentorTrainingDTO;
 import com.mentorondemand.student.dto.StudentTrainingDTO;
+import com.mentorondemand.student.feign.MentorFeign;
 import com.mentorondemand.student.feign.SearchFeign;
 import com.mentorondemand.student.feign.UserFeign;
 import com.mentorondemand.student.mapper.StudentTrainingMapper;
@@ -26,6 +29,9 @@ public class StudentTrainingServiceImpl implements StudentTrainingService{
 	
 	@Autowired
 	private SearchFeign searchFeign;
+	
+	@Autowired
+	private MentorFeign mentorFeign;
 
 	public StudentTrainingDTO createStudentTraining(StudentTrainingDTO trainingDTO) {
 		StudentTraining training = mapper.dtoToStudentTraining(trainingDTO);
@@ -38,14 +44,16 @@ public class StudentTrainingServiceImpl implements StudentTrainingService{
 	@Async
 	private  void indexCourse(StudentTrainingDTO training)
 	{	
-		List<StudentTrainingDTO> list = new ArrayList<StudentTrainingDTO>();
-		list.add(training);
+		MentorTrainingDTO mentorTraining = mentorFeign.getMentorTrainingDetails(training.getMentorTrainingId());
+		StudentDTO student = new StudentDTO();
+//		student.setMentorTrainingId(training);
 		CourseIndexDTO courseIndexDTO = new CourseIndexDTO();
-		courseIndexDTO.setTrainees(list);
+//		courseIndexDTO.setTrainees(list);
+		courseIndexDTO.setCourseId(mentorTraining.getCourseId().toString());
 //		courseIndexDTO.setUserName(training.getUserId().toString());
 ////		courseIndexDTO.setMentorName(mentorName);
 //	    restTemplate.postForObject( SEARCH_SERVICE, courseIndexDTO, ResponseEntity.class);
-		searchFeign.updateCourseSearch(courseIndexDTO);
+//		searchFeign.updateCourseSearch(courseIndexDTO);
 	 
 	}
 

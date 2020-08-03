@@ -1,0 +1,10 @@
+FROM openjdk:8-jdk-alpine
+
+EXPOSE 8090
+
+ARG JAR__FILE=target/*.jar
+
+COPY ${JAR__FILE} app.jar
+
+
+ENTRYPOINT [ "java","-jar","app.jar" ]

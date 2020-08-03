@@ -1,5 +1,6 @@
 package com.mentorondemand.mentor.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +8,8 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import com.mentorondemand.common.dto.CourseIndexDTO;
 import com.mentorondemand.mentor.domain.MentorTraining;
-import com.mentorondemand.mentor.dto.CourseIndexDTO;
 import com.mentorondemand.mentor.dto.MentorTrainingDTO;
 import com.mentorondemand.mentor.dto.StudentTrainingDTO;
 import com.mentorondemand.mentor.dto.UserDTO;
@@ -53,14 +54,13 @@ public class MentorServiceImpl implements MentorService{
 	@Async
 	private  void indexCourse(MentorTrainingDTO training)
 	{	
+
 		UserDTO user = userFeign.getUser(training.getUserName());
 		CourseIndexDTO courseIndexDTO = new CourseIndexDTO();
-		courseIndexDTO.setCouseId(training.getCourseId().toString());
+		courseIndexDTO.setCourseId(training.getCourseId().toString());
+		courseIndexDTO.setCourseRating(training.getRatings());
 		courseIndexDTO.setUserName(training.getUserName());
 		courseIndexDTO.setMentorName(user.getFirstName() +" "+user.getLastName());
-		courseIndexDTO.setMentorFee(training.getAmount());
-		courseIndexDTO.setCourseRating(training.getRatings());
-	   // restTemplate.postForObject( SEARCH_SERVICE, courseIndexDTO, ResponseEntity.class);
 		searchFeign.updateCourseSearch(courseIndexDTO);
 	 
 	}

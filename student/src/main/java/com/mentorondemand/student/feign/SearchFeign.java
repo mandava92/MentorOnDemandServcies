@@ -4,7 +4,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.mentorondemand.student.dto.CourseIndexDTO;
+import com.mentorondemand.common.dto.CourseIndexDTO;
+
 
 
 @FeignClient("search-service")

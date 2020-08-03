@@ -1,8 +1,6 @@
-package com.mentorondemand.mentor.dto;
+package com.mentorondemand.training.dto;
 
 import java.math.BigDecimal;
-import java.util.List;
-
 
 
 public class CourseIndexDTO {
@@ -15,39 +13,10 @@ public class CourseIndexDTO {
 	private BigDecimal mentorShare;
 	private String batchName;
 	private String skillName;
-	private String mentorName;
-	private String courseImage;
-	private BigDecimal mentorFee;
 	private String userName;
-	private BigDecimal courseRating;
-	private List<StudentTrainingDTO> trainees;
 	
 	
-	public BigDecimal getCourseRating() {
-		return courseRating;
-	}
-	public void setCourseRating(BigDecimal courseRating) {
-		this.courseRating = courseRating;
-	}
-	public String getMentorName() {
-		return mentorName;
-	}
-	public void setMentorName(String mentorName) {
-		this.mentorName = mentorName;
-	}
 	
-	public String getCourseImage() {
-		return courseImage;
-	}
-	public void setCourseImage(String courseImage) {
-		this.courseImage = courseImage;
-	}
-	public List<StudentTrainingDTO> getTrainees() {
-		return trainees;
-	}
-	public void setTrainees(List<StudentTrainingDTO> trainees) {
-		this.trainees = trainees;
-	}
 	public String getCouseId() {
 		return couseId;
 	}
@@ -102,13 +71,6 @@ public class CourseIndexDTO {
 	public void setSkillName(String skillName) {
 		this.skillName = skillName;
 	}
-	
-	public BigDecimal getMentorFee() {
-		return mentorFee;
-	}
-	public void setMentorFee(BigDecimal mentorFee) {
-		this.mentorFee = mentorFee;
-	}
 	public String getUserName() {
 		return userName;
 	}
@@ -117,11 +79,10 @@ public class CourseIndexDTO {
 	}
 	@Override
 	public String toString() {
-		return "CourseIndexDTO [couseId=" + couseId + ", documentVersion=" + documentVersion + ", courseName="
-				+ courseName + ", skillId=" + skillId + ", batchId=" + batchId + ", studentFee=" + studentFee
-				+ ", mentorShare=" + mentorShare + ", batchName=" + batchName + ", skillName=" + skillName
-				+ ", mentorName=" + mentorName + ", courseImage=" + courseImage + ", mentorFee=" + mentorFee
-				+ ", userName=" + userName + ", trainees=" + trainees + "]";
+		return "CourseDTO [couseId=" + couseId + ", documentVersion=" + documentVersion + ", courseName=" + courseName
+				+ ", skillId=" + skillId + ", batchId=" + batchId + ", studentFee=" + studentFee + ", mentorShare="
+				+ mentorShare + ", batchName=" + batchName + ", skillName=" + skillName + ", userName=" + userName
+				+ "]";
 	}
 	
 	
